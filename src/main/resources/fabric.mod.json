@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "shyvvtrials",
+  "version": "${version}",
+  "name": "Shyvv Trials",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/shyvvtrials/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.shyvv.shyvvtrials.client.ShyvvtrialsClient"
+    ],
+    "main": [
+      "net.shyvv.shyvvtrials.Shyvvtrials"
+    ],
+    "fabric-datagen": [
+      "net.shyvv.shyvvtrials.ShyvvtrialsDatagen"
+    ]
+  },
+  "mixins": [
+    "shyvvtrials.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

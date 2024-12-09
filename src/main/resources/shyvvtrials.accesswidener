@@ -1,0 +1,7 @@
+accessWidener v2 named
+
+accessible method net/minecraft/block/spawner/TrialSpawnerData findPlayerWithOmen (Lnet/minecraft/server/world/ServerWorld;Ljava/util/List;)Ljava/util/Optional;
+accessible field net/minecraft/block/spawner/TrialSpawnerData nextMobSpawnsAt J
+accessible field net/minecraft/block/spawner/TrialSpawnerData spawnedMobsAlive Ljava/util/Set;
+accessible field net/minecraft/block/spawner/TrialSpawnerData players Ljava/util/Set;
+accessible field net/minecraft/block/spawner/TrialSpawnerData totalSpawnedMobs I

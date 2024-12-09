@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.shyvv.shyvvtrials.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "TrialSpawnerDataMixin",
+    "TrialSpawnerLogicMixin"
+  ],
+  "client": [
+    "BipedEntityModelMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

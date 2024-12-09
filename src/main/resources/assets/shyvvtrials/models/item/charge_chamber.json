@@ -1,0 +1,71 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "shyvvtrials:item/charge_chamber"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 260, -90 ],
+      "translation": [ -1, -1.5, -1 ],
+      "scale": [ 0.75, 0.75, 0.75 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 90 ],
+      "translation": [ -1, -2, -1 ],
+      "scale": [ 0.75, 0.75, 0.75 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 0 ],
+      "translation": [ 1.13, 4.2, 1.13],
+      "scale": [ 0.68, 0.68, 0.68 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ 1.13, 4.2, 1.13],
+      "scale": [ 0.68, 0.68, 0.68 ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "using": 1
+      },
+      "model": "shyvvtrials:item/charge_chamber_0"
+    },
+    {
+      "predicate": {
+        "using": 1,
+        "use": 0.2
+      },
+      "model": "shyvvtrials:item/charge_chamber_1"
+    },
+    {
+      "predicate": {
+        "using": 1,
+        "use": 0.333
+      },
+      "model": "shyvvtrials:item/charge_chamber_2"
+    },
+    {
+      "predicate": {
+        "using": 1,
+        "use": 0.55
+      },
+      "model": "shyvvtrials:item/charge_chamber_3"
+    },
+    {
+      "predicate": {
+        "using": 1,
+        "use": 0.72
+      },
+      "model": "shyvvtrials:item/charge_chamber_4"
+    },
+    {
+      "predicate": {
+        "using": 1,
+        "use": 0.8888
+      },
+      "model": "shyvvtrials:item/charge_chamber_5"
+    }
+  ]
+}

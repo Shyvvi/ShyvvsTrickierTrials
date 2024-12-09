@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "shyvvtrials:jousting",
+      "required": false
+    },
+    {
+      "id": "shyvvtrials:penetration",
+      "required": false
+    },
+    {
+      "id": "shyvvtrials:conservation",
+      "required": false
+    }
+  ]
+}

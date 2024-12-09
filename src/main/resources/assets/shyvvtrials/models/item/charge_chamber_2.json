@@ -1,0 +1,6 @@
+{
+  "parent": "shyvvtrials:item/charge_chamber",
+  "textures": {
+    "layer0": "shyvvtrials:item/charge_chamber_2"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "shyvvtrials:item/lance_3d"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 260, -30 ],
+      "translation": [ -2.5, 14, -0.75 ],
+      "scale": [ 1.8, 1.8, 1 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 30 ],
+      "translation": [ -2.5, 14, -0.75 ],
+      "scale": [ 1.8, 1.8, 1 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ -100, -270, -270 ],
+      "translation": [ 1, 5.2, -9.5],
+      "scale": [ 1.8, 1.8, 0.8 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ -100, 270, 270 ],
+      "translation": [ 1, 5.2, -9.5],
+      "scale": [ 1.8, 1.8, 0.8 ]
+    }
+  }
+}

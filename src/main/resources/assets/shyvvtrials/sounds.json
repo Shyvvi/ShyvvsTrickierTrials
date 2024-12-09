@@ -1,0 +1,41 @@
+{
+  "charge_chamber_charge": {
+    "subtitle": "subtitles.shyvvtrials.charge_chamber_charge",
+    "sounds": [
+      "shyvvtrials:charge_chamber_1",
+      "shyvvtrials:charge_chamber_2",
+      "shyvvtrials:charge_chamber_3",
+      "shyvvtrials:charge_chamber_4"
+    ]
+  },
+  "charge_chamber_full": {
+    "subtitle": "subtitles.shyvvtrials.charge_chamber_full",
+    "sounds": [
+      "shyvvtrials:charge_chamber_full"
+    ]
+  },
+  "charge_chamber_max": {
+    "subtitle": "subtitles.shyvvtrials.charge_chamber_max",
+    "sounds": [
+      "shyvvtrials:charge_chamber_max"
+    ]
+  },
+  "charge_chamber_shoot": {
+    "subtitle": "subtitles.shyvvtrials.charge_chamber_shoot",
+    "sounds": [
+      "shyvvtrials:charge_chamber_shoot"
+    ]
+  },
+  "lance_impact": {
+    "subtitle": "subtitles.shyvvtrials.lance_impact",
+    "sounds": [
+      "shyvvtrials:lance_impact"
+    ]
+  },
+  "metal_pipe": {
+    "subtitle": "subtitles.shyvvtrials.metal_pipe",
+    "sounds": [
+      "shyvvtrials:metal_pipe"
+    ]
+  }
+}

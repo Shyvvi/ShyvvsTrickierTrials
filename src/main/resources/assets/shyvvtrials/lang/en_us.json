@@ -1,0 +1,19 @@
+{
+  "item.shyvvtrials.dense_ingot": "Dense Ingot",
+  "item.shyvvtrials.lance": "Lance",
+  "item.shyvvtrials.charge_chamber": "Charge Chamber",
+
+  "enchantment.shyvvtrials.penetration": "Penetration",
+  "enchantment.shyvvtrials.penetration.desc": "Deals additional damage relative to your velocity.",
+  "enchantment.shyvvtrials.jousting": "Jousting",
+  "enchantment.shyvvtrials.jousting.desc": "Increases the damage dealt while riding a horse.",
+  "enchantment.shyvvtrials.conservation": "Conservation",
+  "enchantment.shyvvtrials.conservation.desc": "Halves the amount of charges consumed when used.",
+
+  "subtitles.shyvvtrials.charge_chamber_charge": "Charge chamber cracks",
+  "subtitles.shyvvtrials.charge_chamber_shoot": "Charge chamber shoots",
+  "subtitles.shyvvtrials.charge_chamber_max": "Charge chamber charges",
+  "subtitles.shyvvtrials.charge_chamber_full": "Charge chamber snaps",
+  "subtitles.shyvvtrials.lance_impact": "Lance impacts",
+  "subtitles.shyvvtrials.metal_pipe": "Funny lance impacts"
+}
