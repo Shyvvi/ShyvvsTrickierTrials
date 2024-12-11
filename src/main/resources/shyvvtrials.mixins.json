@@ -4,8 +4,10 @@
   "package": "net.shyvv.shyvvtrials.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ItemDispenserBehaviorMixin",
     "TrialSpawnerDataMixin",
-    "TrialSpawnerLogicMixin"
+    "TrialSpawnerLogicMixin",
+    "VaultBlockEntityMixin"
   ],
   "client": [
     "BipedEntityModelMixin",

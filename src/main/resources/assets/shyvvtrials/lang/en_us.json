@@ -15,5 +15,7 @@
   "subtitles.shyvvtrials.charge_chamber_max": "Charge chamber charges",
   "subtitles.shyvvtrials.charge_chamber_full": "Charge chamber snaps",
   "subtitles.shyvvtrials.lance_impact": "Lance impacts",
-  "subtitles.shyvvtrials.metal_pipe": "Funny lance impacts"
+  "subtitles.shyvvtrials.metal_pipe": "Funny lance impacts",
+
+  "item.keylevel": "Level"
 }

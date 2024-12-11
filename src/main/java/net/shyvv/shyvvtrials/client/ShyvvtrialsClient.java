@@ -7,6 +7,7 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.WindChargeEntityRenderer;
 import net.minecraft.particle.SimpleParticleType;
 import net.shyvv.shyvvtrials.client.particle.LanceAttackParticle;
+import net.shyvv.shyvvtrials.item.ModCallbacks;
 import net.shyvv.shyvvtrials.registry.ModEntities;
 import net.shyvv.shyvvtrials.client.item.ModModelPredicateProviders;
 import net.shyvv.shyvvtrials.registry.ModParticles;
@@ -21,5 +22,6 @@ public class ShyvvtrialsClient implements ClientModInitializer {
         });
         ModModelPredicateProviders.registerModelPredicateProviders();
         ModParticles.clientInitialize();
+        ModCallbacks.tooltipCallback();
     }
 }

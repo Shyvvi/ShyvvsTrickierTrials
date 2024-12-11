@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.shyvv.shyvvtrials.block.TrialSpawnerChanges;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,23 +30,10 @@ public abstract class TrialSpawnerDataMixin {
     @Unique
     private int level = 0;
 
-    @Unique
-    private void setlevel(ServerWorld world, List<UUID> list) {
-        Optional<Pair<PlayerEntity, RegistryEntry<StatusEffect>>> optional = TrialSpawnerData.findPlayerWithOmen(world, list);
-        optional.ifPresent((pair) -> {
-            PlayerEntity playerEntity = pair.getFirst();
-            RegistryEntry<StatusEffect> registryEntry = StatusEffects.TRIAL_OMEN;
-            StatusEffectInstance statusEffectInstance = playerEntity.getStatusEffect(registryEntry);
-            if(statusEffectInstance != null) {
-                this.level = statusEffectInstance.getAmplifier();
-            }
-        });
-    }
-
     @Inject(method = "canSpawnMore", at = @At("HEAD"), cancellable = true)
     public void shyvvtrials$spawnAdjust1(ServerWorld world, TrialSpawnerConfig config, int additionalPlayers, CallbackInfoReturnable<Boolean> cir) {
         List<UUID> list = thisObject.players.stream().toList();
-        setlevel(world, list);
+        level = TrialSpawnerChanges.getLevel(world, list);
         if(level > 0) {
             cir.setReturnValue(world.getTime() >= thisObject.nextMobSpawnsAt && thisObject.spawnedMobsAlive.size() < config.getSimultaneousMobs(additionalPlayers)+(level/1.4)) ;
         }

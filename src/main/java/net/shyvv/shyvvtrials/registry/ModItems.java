@@ -17,9 +17,7 @@ public class ModItems {
 
         Identifier itemID = Identifier.of(Shyvvtrials.MOD_ID, id);
 
-        Item registeredItem = Registry.register(Registries.ITEM, itemID, item);
-
-        return registeredItem;
+        return Registry.register(Registries.ITEM, itemID, item);
     }
 
     public static final Item DENSE_INGOT = register(
