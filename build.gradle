@@ -16,9 +16,6 @@ repositories {
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-    maven { // for Fabric ASM
-        url = "https://jitpack.io/"
-    }
 }
 
 fabricApi {
@@ -36,15 +33,13 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    include(modImplementation("com.github.Chocohead:Fabric-ASM:${fabric_asm_version}")) {
-        exclude (group: "net.fabricmc.fabric-api")
-    }
 }
 
 processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
+//    inputs.property "minecraft_min_version", project.minecraft_min_version
+//    inputs.property "minecraft_max_version", project.minecraft_max_version
     inputs.property "loader_version", project.loader_version
     filteringCharset "UTF-8"
 

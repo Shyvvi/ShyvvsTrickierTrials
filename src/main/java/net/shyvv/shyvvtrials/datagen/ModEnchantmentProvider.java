@@ -49,17 +49,6 @@ public class ModEnchantmentProvider extends FabricDynamicRegistryProvider {
                         2,
                         AttributeModifierSlot.MAINHAND
                 )));
-
-        register(entries, ModEnchantments.CONSERVATION_KEY, Enchantment.builder(
-                Enchantment.definition(
-                        itemLookup.getOrThrow(ModItemTagProvider.CHARGE_CHAMBER_REGISTRYKEY),
-                        2,
-                        1,
-                        Enchantment.leveledCost(15, 9),
-                        Enchantment.leveledCost(65, 9),
-                        2,
-                        AttributeModifierSlot.MAINHAND
-                )));
     }
 
     private static void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {

@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.shyvv.shyvvtrials.block.TrialSpawnerChanges;
 import net.shyvv.shyvvtrials.item.components.LeveledKeyComponent;
 import net.shyvv.shyvvtrials.registry.ModDataComponents;
+import net.shyvv.shyvvtrials.registry.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -31,15 +32,17 @@ import java.util.UUID;
 @Mixin(ItemDispenserBehavior.class)
 public abstract class ItemDispenserBehaviorMixin {
 
-    @Inject(method = "spawnItem", at = @At(value = "TAIL"))
+    @Inject(method = "spawnItem", at = @At(value = "HEAD"))
     private static void shyvvtrials$trialEjectLoot(World world, ItemStack stack, int speed, Direction side, Position pos, CallbackInfo cir) {
         BlockEntity spawnerState = world.getBlockEntity(new BlockPos((int) pos.getX(), (int) pos.getY()-2, (int) pos.getZ()));
-        if(spawnerState instanceof TrialSpawnerBlockEntity b && stack.getItem() == Items.OMINOUS_TRIAL_KEY) {
-            List<UUID> list = b.getSpawner().getData().players.stream().toList();
-            int level = TrialSpawnerChanges.getLevel((ServerWorld) world, list)+1;
-            if(level > 0) {
-                ComponentMap map = ComponentMap.builder().add(ModDataComponents.LEVELED_KEY, new LeveledKeyComponent(level, true)).build();
-                stack.applyComponentsFrom(map);
+        if(spawnerState instanceof TrialSpawnerBlockEntity b) {
+            if(stack.getItem() == Items.OMINOUS_TRIAL_KEY) {
+                List<UUID> list = b.getSpawner().getData().players.stream().toList();
+                int level = TrialSpawnerChanges.getLevel((ServerWorld) world, list) + 1;
+                if (level > 0) {
+                    ComponentMap map = ComponentMap.builder().add(ModDataComponents.LEVELED_KEY, new LeveledKeyComponent(level, true)).build();
+                    stack.applyComponentsFrom(map);
+                }
             }
         }
     }

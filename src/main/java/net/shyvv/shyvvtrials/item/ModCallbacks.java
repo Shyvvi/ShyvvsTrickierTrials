@@ -1,10 +1,14 @@
 package net.shyvv.shyvvtrials.item;
 
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.component.ComponentMap;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.shyvv.shyvvtrials.registry.ModDataComponents;
+import net.shyvv.shyvvtrials.registry.ModItems;
 
 import java.util.Objects;
 

@@ -5,12 +5,14 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ItemDispenserBehaviorMixin",
+    "ItemEntityMixin",
     "TrialSpawnerDataMixin",
     "TrialSpawnerLogicMixin",
     "VaultBlockEntityMixin"
   ],
   "client": [
     "BipedEntityModelMixin",
+    "HeldItemRendererMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "ModelLoaderMixin"

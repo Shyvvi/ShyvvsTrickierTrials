@@ -1,12 +1,20 @@
 package net.shyvv.shyvvtrials.item;
 
+import com.mojang.brigadier.Command;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.item.*;
+import net.minecraft.registry.BuiltinRegistries;
 import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -20,8 +28,10 @@ import net.shyvv.shyvvtrials.registry.ModEntities;
 import net.shyvv.shyvvtrials.registry.ModSounds;
 import net.shyvv.shyvvtrials.entity.ChamberFireCharge;
 import net.shyvv.shyvvtrials.entity.ChamberWindCharge;
+import org.spongepowered.asm.mixin.Dynamic;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Predicate;
 
@@ -50,11 +60,6 @@ public class ChargeChamberItem extends Item {
                     }
 
                     if(!user.isInCreativeMode()) {
-                        DynamicRegistryManager regManager = user.getWorld().getRegistryManager();
-
-                        if(ItemUtils.getEnchantmentLevel(regManager, ModEnchantments.PENETRATION_KEY, stack) > 0) {
-                            f/=2;
-                        }
                         itemStack.decrement((int) Math.ceil(f));
                         stack.damage(1, user, EquipmentSlot.MAINHAND);
                     }

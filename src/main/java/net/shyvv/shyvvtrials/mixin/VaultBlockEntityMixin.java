@@ -16,6 +16,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextTypes;
@@ -26,6 +27,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.shyvv.shyvvtrials.block.TrialSpawnerChanges;
 import net.shyvv.shyvvtrials.registry.ModDataComponents;
+import net.shyvv.shyvvtrials.registry.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -62,6 +64,13 @@ public class VaultBlockEntityMixin {
                 list.add(lootTable.generateLoot(lootContextParameterSet).getFirst());
             }
         }
-
+        for (ItemStack item : list) {
+            if(item.isOf(Items.HEAVY_CORE)) {
+                ItemStack denseIngotReplacement = ModItems.DENSE_INGOT.getDefaultStack();
+                denseIngotReplacement.setCount(2+world.getRandom().nextInt(4));
+                list.remove(item);
+                list.add(denseIngotReplacement);
+            }
+        }
     }
 }

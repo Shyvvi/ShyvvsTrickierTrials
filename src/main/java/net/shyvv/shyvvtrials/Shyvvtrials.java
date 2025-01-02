@@ -19,5 +19,6 @@ public class Shyvvtrials implements ModInitializer {
         ModEnchantments.initialize();
         ModParticles.initialize();
         ModDataComponents.initialize();
+        ModItemGroups.initialize();
     }
 }
