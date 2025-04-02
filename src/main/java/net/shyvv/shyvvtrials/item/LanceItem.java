@@ -128,8 +128,8 @@ public class LanceItem extends Item {
     }
 
     public boolean shouldDealAdditionalDamage(PlayerEntity p) {
-        boolean a = getCombinedVelocity(p) > 1.4F && this.oldPlayerAttackCD > LanceItem.attackCDRequirement;
-        if(a) raiseTicks = 5;
+        boolean a = (getCombinedVelocity(p) > 1.4F && this.oldPlayerAttackCD > LanceItem.attackCDRequirement) || raiseTicks > 0;
+        if(a && raiseTicks <= 0) raiseTicks = 5;
         return a;
     }
 

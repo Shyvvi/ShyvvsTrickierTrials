@@ -23,7 +23,11 @@ public class BipedEntityModelMixin<T extends LivingEntity> {
     public void shyvvtrials$armPoses(T livingEntity, float f, float g, float h, float i, float j, CallbackInfo ci) {
         ItemStack item = livingEntity.getMainHandStack();
         if(item.isOf(ModItems.LANCE)) {
-            PlayerArmPoses.lanceHold(thisObject.rightArm, thisObject.leftArm, livingEntity.getMainArm()== Arm.RIGHT);
+            if(livingEntity.hasVehicle()) {
+                PlayerArmPoses.lanceHoldVehicle(thisObject.rightArm, thisObject.leftArm, livingEntity.getMainArm() == Arm.RIGHT);
+            } else{
+                PlayerArmPoses.lanceHold(thisObject.rightArm, thisObject.leftArm, livingEntity.getMainArm() == Arm.RIGHT);
+            }
         }
     }
 }

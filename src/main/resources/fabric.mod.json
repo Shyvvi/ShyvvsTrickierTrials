@@ -3,12 +3,13 @@
   "id": "shyvvtrials",
   "version": "${version}",
   "name": "Shyvv's Trickier Trials",
-  "description": "",
-  "authors": [],
+  "description": "More risk and reward for the Trial Chambers.",
+  "authors": ["Shyvv"],
   "contact": {},
   "license": "All-Rights-Reserved",
   "icon": "assets/shyvvtrials/icon.png",
   "environment": "*",
+  "accessWidener" : "shyvvtrials.accesswidener",
   "entrypoints": {
     "client": [
       "net.shyvv.shyvvtrials.client.ShyvvtrialsClient"
