@@ -18,10 +18,12 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
+import net.shyvv.shyvvtrials.config.ModConfigs;
 import net.shyvv.shyvvtrials.datagen.ModItemTagProvider;
 import net.shyvv.shyvvtrials.registry.ModEnchantments;
 import net.shyvv.shyvvtrials.registry.ModEntities;
@@ -87,13 +89,13 @@ public class ChargeChamberItem extends Item {
     public ProjectileEntity createFireballEntity(World world, LivingEntity owner, float power) {
         ChamberFireCharge fireballEntity = new ChamberFireCharge(ModEntities.CHAMBER_FIRE_CHARGE, world);
         fireballEntity.setPos(owner.getPos().getX(), owner.getEyePos().getY(), owner.getPos().getZ());
-        fireballEntity.setArgs(Math.round(power*1.25f), owner);
+        fireballEntity.setArgs((power*1.25f)* (float)ModConfigs.CHARGE_CHAMBER_FIRE_CHARGE_STRENGTH, owner);
         return fireballEntity;
     }
     public ProjectileEntity createWindChargeEntity(World world, LivingEntity owner, float power) {
         ChamberWindCharge windchargeEntity = new ChamberWindCharge(ModEntities.CHAMBER_WIND_CHARGE, world);
         windchargeEntity.setPos(owner.getPos().getX(), owner.getEyePos().getY(), owner.getPos().getZ());
-        windchargeEntity.setArgs(Math.round(power*4f), owner);
+        windchargeEntity.setArgs((power*4f)* (float)ModConfigs.CHARGE_CHAMBER_WIND_CHARGE_STRENGTH, owner);
         return windchargeEntity;
     }
 

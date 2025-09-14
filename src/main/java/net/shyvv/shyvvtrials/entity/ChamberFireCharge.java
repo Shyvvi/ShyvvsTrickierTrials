@@ -26,7 +26,7 @@ import java.util.function.Function;
 
 public class ChamberFireCharge extends AbstractFireballEntity {
     public static final ExplosionBehavior EXPLOSION_BEHAVIOR;
-    private int explosionPower = 1;
+    private float explosionPower = 1;
     private int deflectCooldown = 5;
 
     public ChamberFireCharge(EntityType<? extends AbstractFireballEntity> entityType, World world) {
@@ -37,7 +37,7 @@ public class ChamberFireCharge extends AbstractFireballEntity {
         return this.deflectCooldown <= 0 && super.deflect(deflection, deflector, owner, fromAttack);
     }
 
-    public void setArgs(int explosionPower, LivingEntity owner) {
+    public void setArgs(float explosionPower, LivingEntity owner) {
         this.explosionPower = explosionPower;
         this.setOwner(owner);
     }
@@ -48,7 +48,7 @@ public class ChamberFireCharge extends AbstractFireballEntity {
             this.getWorld().createExplosion(this, (DamageSource)null, EXPLOSION_BEHAVIOR, this.getX(), this.getY(), this.getZ(), explosionPower, true, World.ExplosionSourceType.TRIGGER, ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, SoundEvents.ENTITY_GENERIC_EXPLODE);
             if(this.getWorld() instanceof ServerWorld serverWorld){
                 double delta = explosionPower/1.5;
-                serverWorld.spawnParticles(ParticleTypes.EXPLOSION, this.getX(), this.getY(), this.getZ(), 2*(explosionPower), delta, delta, delta, 0.75);
+                serverWorld.spawnParticles(ParticleTypes.EXPLOSION, this.getX(), this.getY(), this.getZ(), 2*(Math.round(explosionPower)), delta, delta, delta, 0.75);
             }
             this.discard();
         }

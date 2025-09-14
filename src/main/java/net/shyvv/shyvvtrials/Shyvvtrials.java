@@ -1,7 +1,7 @@
 package net.shyvv.shyvvtrials;
 
 import net.fabricmc.api.ModInitializer;
-import net.shyvv.shyvvtrials.item.ModCallbacks;
+import net.shyvv.shyvvtrials.config.ModConfigs;
 import net.shyvv.shyvvtrials.registry.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ public class Shyvvtrials implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModConfigs.initialize();
         ModEntities.initialize();
         ModItems.initialize();
         ModSounds.initialize();

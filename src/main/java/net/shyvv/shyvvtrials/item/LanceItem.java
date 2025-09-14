@@ -19,7 +19,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.Text;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -32,16 +31,11 @@ import net.shyvv.shyvvtrials.registry.ModSounds;
 import net.shyvv.shyvvtrials.util.IEntityDataSaver;
 import net.shyvv.shyvvtrials.util.ShyvvUtils;
 
-import java.awt.*;
-
 public class LanceItem extends Item {
     private static final float ATTACK_DAMAGE_MODIFIER_VALUE = 6.0F;
     private static final float ATTACK_SPEED_MODIFIER_VALUE = -3.6F;
     private static final float PLAYER_ENTITY_INTERACTION_RANGE_VALUE = 1.0F;
-    public static final float attackCDRequirement = 0.9f;
-//    private float playerAttackCD = 0f;
-//    private float oldPlayerAttackCD = 0f;
-//    private int raiseTicks = 0;
+    public static final float ATTACK_CD_REQUIREMENT = 0.9f;
 
     public static final Identifier BASE_PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID = Identifier.ofVanilla("base_entity_interaction_range");
     public LanceItem(Settings settings) {
@@ -116,12 +110,12 @@ public class LanceItem extends Item {
 
     public boolean shouldDealAdditionalDamage(PlayerEntity p) {
         double raiseTicks = getRaiseTicks(p);
-        boolean a = (getCombinedVelocity(p) > 1.4F && getOldPlayerAttackCD(p) > LanceItem.attackCDRequirement) || raiseTicks > 0;
+        boolean a = (getCombinedVelocity(p) > 1.4F && getOldPlayerAttackCD(p) > LanceItem.ATTACK_CD_REQUIREMENT) || raiseTicks > 0;
 
         if(a && raiseTicks <= 0) {
             NbtCompound nbt = ((IEntityDataSaver) p).getPersistentData();
             nbt.putDouble("raiseTicks", 5);
-            p.writeNbt(nbt);
+            p.writeCustomDataToNbt(nbt);
         }
         return a;
     }
@@ -145,9 +139,9 @@ public class LanceItem extends Item {
 
         Vec3d temp = oldPos.subtract(pos);
         if(!temp.equals(new Vec3d(0,0,0))) {
-            p.writeNbt(ShyvvUtils.setPersistentVec3d(nbt, "posDifferenceVec3d", temp));
+            p.writeCustomDataToNbt(ShyvvUtils.setPersistentVec3d(nbt, "posDifferenceVec3d", temp));
         }
-        p.writeNbt(ShyvvUtils.setPersistentVec3d(nbt, "oldPosVec3d", pos));
+        p.writeCustomDataToNbt(ShyvvUtils.setPersistentVec3d(nbt, "oldPosVec3d", pos));
     }
 
     //I have NO clue what this was even used for nor it's significance other than to make sure the player is not spam clicking
@@ -158,7 +152,7 @@ public class LanceItem extends Item {
         nbt.putDouble("oldPlayerAttackCD", playerAttackCD);
         nbt.putDouble("playerAttackCD", p.getAttackCooldownProgress(1.0f));
         if(raiseTicks > 0) nbt.putDouble("raiseTicks", raiseTicks - 1);
-        p.writeNbt(nbt);
+        p.writeCustomDataToNbt(nbt);
     }
 
     public double getRaiseTicks(PlayerEntity p) {

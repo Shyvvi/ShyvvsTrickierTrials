@@ -38,6 +38,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.shyvv.shyvvtrials.block.TrialSpawnerChanges;
+import net.shyvv.shyvvtrials.config.ModConfigs;
 import net.shyvv.shyvvtrials.item.components.LeveledKeyComponent;
 import net.shyvv.shyvvtrials.registry.ModDataComponents;
 import net.shyvv.shyvvtrials.registry.ModItems;
@@ -100,7 +101,7 @@ public abstract class TrialSpawnerLogicMixin {
         if (thisObject.isOminous() && !list.isEmpty()) {
             level = TrialSpawnerChanges.getLevel(world, list) + 1;
             if(level > 0) {
-                scalingEffects(mobEntity, level);
+                scalingEffects(mobEntity, level + ModConfigs.OMINOUS_SPAWNER_DIFFICULTY_SCALE);
             }
         }
     }

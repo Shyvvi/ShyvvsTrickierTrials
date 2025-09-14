@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class ChamberWindCharge extends AbstractWindChargeEntity {
     public static final ExplosionBehavior EXPLOSION_BEHAVIOR;
-    private int explosionPower = 1;
+    private float explosionPower = 1;
     private int deflectCooldown = 5;
 
     public ChamberWindCharge(EntityType<? extends AbstractWindChargeEntity> entityType, World world) {
@@ -34,7 +34,7 @@ public class ChamberWindCharge extends AbstractWindChargeEntity {
         return this.deflectCooldown <= 0 && super.deflect(deflection, deflector, owner, fromAttack);
     }
 
-    public void setArgs(int explosionPower, LivingEntity owner) {
+    public void setArgs(float explosionPower, LivingEntity owner) {
         this.explosionPower = explosionPower;
         this.setOwner(owner);
     }
