@@ -4,6 +4,7 @@
   "package": "net.shyvv.shyvvtrials.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EntityDataSaverMixin",
     "ItemDispenserBehaviorMixin",
     "ItemEntityMixin",
     "TrialSpawnerDataMixin",
