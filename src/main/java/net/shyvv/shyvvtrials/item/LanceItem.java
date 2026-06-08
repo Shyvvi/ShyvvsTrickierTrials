@@ -113,9 +113,7 @@ public class LanceItem extends Item {
         boolean a = (getCombinedVelocity(p) > 1.4F && getOldPlayerAttackCD(p) > LanceItem.ATTACK_CD_REQUIREMENT) || raiseTicks > 0;
 
         if(a && raiseTicks <= 0) {
-            NbtCompound nbt = ((IEntityDataSaver) p).getPersistentData();
-            nbt.putDouble("raiseTicks", 5);
-            p.writeCustomDataToNbt(nbt);
+            ((IEntityDataSaver) p).getPersistentData().putDouble("raiseTicks", 5);
         }
         return a;
     }
@@ -139,9 +137,9 @@ public class LanceItem extends Item {
 
         Vec3d temp = oldPos.subtract(pos);
         if(!temp.equals(new Vec3d(0,0,0))) {
-            p.writeCustomDataToNbt(ShyvvUtils.setPersistentVec3d(nbt, "posDifferenceVec3d", temp));
+            ShyvvUtils.setPersistentVec3d(nbt, "posDifferenceVec3d", temp);
         }
-        p.writeCustomDataToNbt(ShyvvUtils.setPersistentVec3d(nbt, "oldPosVec3d", pos));
+        ShyvvUtils.setPersistentVec3d(nbt, "oldPosVec3d", pos);
     }
 
     //I have NO clue what this was even used for nor it's significance other than to make sure the player is not spam clicking
@@ -152,7 +150,6 @@ public class LanceItem extends Item {
         nbt.putDouble("oldPlayerAttackCD", playerAttackCD);
         nbt.putDouble("playerAttackCD", p.getAttackCooldownProgress(1.0f));
         if(raiseTicks > 0) nbt.putDouble("raiseTicks", raiseTicks - 1);
-        p.writeCustomDataToNbt(nbt);
     }
 
     public double getRaiseTicks(PlayerEntity p) {
