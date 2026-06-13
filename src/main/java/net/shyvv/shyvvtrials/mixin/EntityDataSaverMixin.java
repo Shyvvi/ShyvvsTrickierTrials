@@ -25,7 +25,7 @@ public abstract class EntityDataSaverMixin implements IEntityDataSaver {
 
     @Inject(method = "writeNbt", at = @At("HEAD"))
     protected void injectWriteMethod(NbtCompound nbt, CallbackInfoReturnable info) {
-        if(persistentData != null) {
+        if(persistentData != null && persistentData != nbt) {
             nbt.put(IEntityDataSaver.persistentDataKey, persistentData);
         }
     }
