@@ -71,6 +71,9 @@ public class LanceItem extends Item {
                 target.dismountVehicle();
             }
             target.addVelocity(getKnockback(p));
+            if(target instanceof PlayerEntity pe) {
+                pe.velocityModified = true;
+            }
         }
         return super.postHit(stack, target, attacker);
     }
